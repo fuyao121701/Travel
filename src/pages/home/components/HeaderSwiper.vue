@@ -5,8 +5,6 @@
       <swiper-slide v-for="item of swiperList" :key="item.id">
         <img :src="item.imgUrl" alt="" class="swiper-img">
       </swiper-slide>
-
-
       <!-- Optional controls -->
       <div class="swiper-pagination"  slot="pagination"></div>
 
@@ -18,7 +16,7 @@
 <script>
 export default {
   name: 'HeaderSwiper',
-  data() {
+  data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
