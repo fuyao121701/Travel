@@ -15,6 +15,7 @@ export default {
 <style lang="stylus" scoped>
 @import "~styles/varibles.styl"
 .header
+  width 100%
   height .86rem
   line-height .86rem
   color #ffffff
