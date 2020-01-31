@@ -7,7 +7,7 @@
     <div class="header-input">
       <span class="iconfont"> &#xe67d; </span>
       输入城市/景点/游玩主题 </div>
-    <div class="header-right"> {{city}}
+    <div class="header-right"> {{this.$store.state.city}}
       <router-link to="/city">
         <span class="iconfont arrow-icon"> &#xe600; </span>
       </router-link>
@@ -52,7 +52,7 @@ export default {
 
     .header-right
       float right
-      width 1.28rem
+      min-width 1.08rem
       text-align center
       .arrow-icon
         font-size .2rem

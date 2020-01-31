@@ -20,7 +20,8 @@ export default {
   name: 'Home',
   data () {
     return {
-      city: ''
+      city: '',
+      lastCity: ''
     }
   },
 
@@ -41,6 +42,11 @@ export default {
   },
   mounted () {
     this.getHomeCity()
+  },
+  activated () {
+    if (this.lastCity !== this.$store.state.city) {
+      console.log('判断当前城市是否改变，是否需要重新获取数据')
+    }
   }
 }
 </script>

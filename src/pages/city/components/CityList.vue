@@ -6,8 +6,8 @@
           当前城市{{getValue}}
         </div>
         <div class="city-box">
-        <span class="city" >
-          北京
+        <span class="city">
+          {{this.$store.state.city}}
         </span>
 
         </div>
@@ -19,25 +19,17 @@
           热门城市
         </div>
         <div class="city-box">
-        <span class="city" >
-          北京
+        <span class="city" v-for="item of hotCity" :key="item.id" @click="handleClick(item.city)">
+          {{item.city}}
         </span>
-          <span class="city" >
-          北京
-        </span><span class="city" >
-          北京
-        </span><span class="city" >
-          北京
-        </span><span class="city" >
-          北京
-        </span>
+
         </div>
       </div>
       <div class="area" v-for="item of cities" :key="item.letter" :ref="item.letter">
         <div class="title border-bottom">
           {{item.letter}}
         </div>
-        <div class="item" v-for="(itemInfo,index) of item.city" :key="index"> {{itemInfo}} </div>
+        <div class="item" v-for="(itemInfo,index) of item.city" :key="index" @click="handleClick(itemInfo)"> {{itemInfo}} </div>
       </div>
     </div>
   </div>
@@ -51,9 +43,43 @@ export default {
     cities: Array,
     getValue: String
   },
+  data () {
+    return {
+      hotCity: [
+        {
+          id: '001',
+          city: '北京'
+        },
+        {
+          id: '002',
+          city: '上海'
+        },
+        {
+          id: '003',
+          city: '广州'
+        },
+        {
+          id: '004',
+          city: '重庆'
+        },
+        {
+          id: '005',
+          city: '杭州'
+        }
+      ]
+    }
+  },
+  methods: {
+    handleClick (city) {
+      // this.$store.state.city = city
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
+    }
+  },
   mounted () {
     this.scroll = new BetterScroll(this.$refs.wrraper)
   },
+
   watch: {
     getValue () {
       if (this.getValue) {

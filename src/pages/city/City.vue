@@ -1,7 +1,7 @@
 <template>
   <div>
     <home-header></home-header>
-    <city-search></city-search>
+    <city-search :cities="cities"></city-search>
     <city-list
       :cities="cities"
       :getValue="getValue"
@@ -23,6 +23,7 @@ export default {
   name: 'City',
   data () {
     return {
+      lastCity: '',
       cities: [],
       getValue: ''
     }
@@ -34,8 +35,10 @@ export default {
     Alphabet
   },
   mounted () {
+    this.lastCity = this.$store.state.city
     axios.get('/api/city.json').then(this.getCityInfo)
   },
+
   methods: {
     getCityInfo (result) {
       console.log(result.data)
@@ -45,12 +48,9 @@ export default {
       // console.log(val)
       this.getValue = val
     }
-
   }
-
 }
 </script>
-
 <style scoped>
 
 </style>

@@ -36,7 +36,8 @@ export default {
           letter: 'E'
         }
       ],
-      touchStatus: false
+      touchStatus: false,
+      timer: null
     }
   },
   methods: {
@@ -49,12 +50,17 @@ export default {
     },
     handleMove (e) {
       if (this.touchStatus) {
-        let startY = this.$refs['A'][0].offsetTop
-        let touchY = e.touches[0].clientY
-        let index = Math.floor((touchY - startY) / 20)
-        if (index >= 0 && index < this.list.length) {
-          this.$emit('getChild', this.list[index].letter)
+        if (this.timer) {
+          clearTimeout(this.timer)
         }
+        this.timer = setTimeout(() => {
+          let startY = this.$refs['A'][0].offsetTop
+          let touchY = e.touches[0].clientY
+          let index = Math.floor((touchY - startY) / 20)
+          if (index >= 0 && index < this.list.length) {
+            this.$emit('getChild', this.list[index].letter)
+          }
+        }, 16)
       }
     },
     handleEnd () {
