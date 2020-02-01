@@ -3,15 +3,14 @@
     <div class="hot-wrraper">
       热销推荐
     </div>
-    <div class="info" v-for="item of recommendList" :key="item.id">
-
+    <router-link tag="div" class="info" v-for="item of recommendList" :key="item.id" :to="'/detail/' + item.id">
       <img class="info-img" :src="item.imgUrl" alt="">
       <div class="info-content">
         <p class="info-title">{{item.title}}</p>
         <p class="info-desc">{{item.desc}}</p>
         <button class="info-buttom">{{item.detail}}</button>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
