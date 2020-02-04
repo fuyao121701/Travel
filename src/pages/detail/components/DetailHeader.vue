@@ -36,7 +36,11 @@ export default {
     }
   },
   activated () {
+    console.log('sss')
     window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
@@ -63,6 +67,7 @@ export default {
   right 0
   height .6rem
   width 100%
+  z-index 1
   background #25a4bb
   text-align center
   line-height .6rem

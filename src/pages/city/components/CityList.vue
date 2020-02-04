@@ -77,7 +77,7 @@ export default {
     }
   },
   mounted () {
-    this.scroll = new BetterScroll(this.$refs.wrraper)
+    this.scroll = new BetterScroll(this.$refs.wrraper, {click: true})
   },
 
   watch: {

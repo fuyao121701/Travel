@@ -6,6 +6,7 @@
           <img :src="item.imgUrl" alt="" class="icon-img">
           <p class="icon-desc">{{item.desc}}</p>
         </div>
+
       </swiper-slide>
     </swiper>
   </div>

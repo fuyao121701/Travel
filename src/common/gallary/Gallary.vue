@@ -44,6 +44,7 @@ export default {
   color: #fff
   position fixed
 .container
+  z-index 1
   position absolute
   left 0
   top 0
